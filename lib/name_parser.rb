@@ -139,7 +139,7 @@ module NameParser
           p = Person.parse(phrases[0])
           #raise "Could not parse #{name}" # John Spence, CCNA, CCA
         end
-        Rails.logger.warn "Parsed 4 token name #{name} as #{p}"
+        Rails.logger.debug "Parsed 4 token name #{name} as #{p}"
       when 5
         case phrases.length
         when 1 # 'Julian S. Vergel de Dios'
@@ -161,7 +161,7 @@ module NameParser
         else
           raise "Could not parse #{name}"
         end  
-        Rails.logger.warn "Parsed 5 token name #{name} as #{p}"
+        Rails.logger.debug "Parsed 5 token name #{name} as #{p}"
       else
         raise "Could not parse #{name}"
       end
