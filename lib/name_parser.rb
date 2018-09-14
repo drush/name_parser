@@ -8,7 +8,9 @@ module NameParser
   end
 
   class Person < OpenStruct # Struct.new(:full_name, :first_name, :last_name, :middle_name, :greeting, :suffix, :designation, :nickname)
-    @@logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
+    def self.logger 
+      @@logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
+    end
 
     @@greetings = { 'dr' => 'Dr.', 'mr' => 'Mr.', 'mrs' => 'Mrs.', 'ms' => 'Ms.' }
     @@designations = { 'cpa' => 'CPA', 'phd' => 'PhD', 'ms' => 'MS', 'pe' => 'P.E.', 'md' => 'MD', 'jd' => 'JD' }
@@ -133,7 +135,7 @@ module NameParser
           p = Person.parse(phrases[0])
           # raise "Could not parse #{name}" # John Spence, CCNA, CCA
         end
-        @@logger.warn "NameParser: Parsed 4 token name #{name} as #{p}"
+        logger.debug "NameParser: Parsed 4 token name #{name} as #{p}"
 
       when 5
         case phrases.length
@@ -156,7 +158,7 @@ module NameParser
         else
           raise "Could not parse #{name}"
         end
-        @@logger.warn "NameParser: Parsed 5 token name #{name} as #{p}"
+        logger.debug "NameParser: Parsed 5 token name #{name} as #{p}"
       else
         raise "Could not parse #{name}"
       end
