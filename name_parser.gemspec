@@ -16,6 +16,7 @@ Gem::Specification.new do |s|
   s.files = Dir['{app,config,db,lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.md']
   s.test_files = Dir['test/**/*']
 
+  s.add_development_dependency 'rake', '>= 12.3.1'
   s.add_development_dependency 'minitest', '>= 5.8'
   s.add_development_dependency 'minitest-reporters', '>= 1.1'
 end
