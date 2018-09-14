@@ -2,8 +2,6 @@ require 'ostruct'
 require 'logger'
 
 module NameParser
-  
-
   def parse(name)
     p = NameParser::Person.parse(name)
     new(p.marshal_dump)

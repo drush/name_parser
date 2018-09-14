@@ -1,3 +1,3 @@
 module NameParser
-  VERSION = '1.0.0'.freeze
+  VERSION = '0.9.1'.freeze
 end

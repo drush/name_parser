@@ -11,5 +11,5 @@ end
 task default: :test
 
 task :console do
-  exec "irb -r name_parser -I ./lib"
+  exec 'irb -r name_parser -I ./lib'
 end

@@ -1,7 +1,10 @@
+# rubocop:disable Metrics/LineLength, Metrics/MethodLength, Metrics/AbcSize, Lint/UselessAssignment
+
 require 'test_helper'
-include NameParser
 
 describe NameParser do
+  include NameParser
+
   it 'parses names' do
     # NameParser::Person.test
     name_tests
@@ -117,7 +120,7 @@ def name_tests
         puts '----'
         failed += 1
       end
-    rescue Exception => e
+    rescue StandardError => e
       msg = "'#{full_name}' failed with exception: #{e}" # #{e.backtrace}"
       failed += 1
       raise msg
@@ -129,3 +132,5 @@ def name_tests
   raise msg if failed > 0
   puts msg
 end
+
+# rubocop:enable Metrics/LineLength, Metrics/MethodLength, Metrics/AbcSize, Lint/UselessAssignment
