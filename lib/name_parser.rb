@@ -10,7 +10,7 @@ module NameParser
   end
 
   class Person < OpenStruct # Struct.new(:full_name, :first_name, :last_name, :middle_name, :greeting, :suffix, :designation, :nickname)
-    @@logger ||= defined?(Rails) ? @logger : Logger.new(STDOUT)
+    @@logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
 
     @@greetings = { 'dr' => 'Dr.', 'mr' => 'Mr.', 'mrs' => 'Mrs.', 'ms' => 'Ms.' }
     @@designations = { 'cpa' => 'CPA', 'phd' => 'PhD', 'ms' => 'MS', 'pe' => 'P.E.', 'md' => 'MD', 'jd' => 'JD' }
