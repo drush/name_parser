@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    name_parser (0.9.3)
+    name_parser (1.0.0)
 
 GEM
   remote: http://rubygems.org/
