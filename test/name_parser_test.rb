@@ -31,6 +31,7 @@ describe NameParser do
     t['Smith John P.']     = p3b
     t['J Paul Smith']      = p3c
     t['J.P. Smith, PH.D.'] = p3d
+    t['John Smith Jr.'] = p3e
     t['John Smith, Jr.'] = p3e
     t['Smith, John, Jr.'] = p3e
 

@@ -25,6 +25,9 @@ rake
 
 ## CHANGES
 
+* Sept 2018 - 1.0.1
+  * Add suffix support for Sr, Senior, Junior
+
 * Sept 2018 - 1.0
   * Remove dependencies - runs in any ruby project
   * Refactor tests using minitest

@@ -8,13 +8,20 @@ module NameParser
   end
 
   class Person < OpenStruct # Struct.new(:full_name, :first_name, :last_name, :middle_name, :greeting, :suffix, :designation, :nickname)
-    def self.logger 
-      @@logger ||= defined?(Rails) ? Rails.logger : Logger.new(STDOUT)
+    def self.logger
+      @@logger ||= Rails.logger rescue Logger.new(STDOUT)
     end
 
     @@greetings = { 'dr' => 'Dr.', 'mr' => 'Mr.', 'mrs' => 'Mrs.', 'ms' => 'Ms.' }
     @@designations = { 'cpa' => 'CPA', 'phd' => 'PhD', 'ms' => 'MS', 'pe' => 'P.E.', 'md' => 'MD', 'jd' => 'JD' }
-    @@suffices = { 'jr' => 'Jr.', 'iii' => 'III', 'iv' => 'IV' }
+    @@suffices = { 
+      'senior' => 'Sr.',
+      'sr' => 'Sr.',
+      'junior' => 'Jr.',
+      'jr' => 'Jr.',
+      'iii' => 'III',
+      'iv' => 'IV'
+    }
 
     def to_s
       last_name.nil? ? full_name : "#{greeting} #{first_name} #{middle_name} #{last_name} #{suffix} #{designation}".squeeze(' ').strip
